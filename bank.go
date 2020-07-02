@@ -72,6 +72,7 @@ func (n *nbcb) update() {
 			n.income = i.(map[string]interface{})["expectedRateShow"].(string)
 			n.mark = markup(n.limit, i.(map[string]interface{})["perUseLimit"].(float64))
 			n.limit = fmt.Sprintf("%.2f", (i.(map[string]interface{})["perUseLimit"].(float64)))
+			break
 		}
 	}
 }
