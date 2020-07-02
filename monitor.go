@@ -52,8 +52,7 @@ func main() {
 
 	go func() {
 		for {
-			s := fmt.Sprintf("%s\r", formatter(banks))
-			log.Println(strings.ReplaceAll(strings.ReplaceAll(s, "↑", " "), "↓", " "))
+			log.Println(strings.ReplaceAll(strings.ReplaceAll(fmt.Sprintf("%s", formatter(banks)), "↑", " "), "↓", " "))
 			time.Sleep(15 * time.Second)
 		}
 	}()
