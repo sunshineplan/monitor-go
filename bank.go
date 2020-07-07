@@ -51,7 +51,8 @@ func (n *nbcb) update() {
 	}
 	req.Header.Set("X-GW-APP-ID", "1101")
 	req.Header.Set("X-GW-BACK-HTTP", "GET")
-	resp, err := http.DefaultClient.Do(req)
+	client := &http.Client{Transport: &http.Transport{Proxy: nil}}
+	resp, err := client.Do(req)
 	if err != nil {
 		log.Panicf("Do Request Error: %v", err)
 	}
